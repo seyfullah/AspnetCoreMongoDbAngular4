@@ -1,0 +1,10 @@
+<div id="search-component">
+  <h4>Not Arama</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <div>
+    <div *ngFor="let item of notes | async"
+         (click)="gotoDetail(item)" class="search-result" >
+      {{note.Body}}
+    </div>
+  </div>
+</div>

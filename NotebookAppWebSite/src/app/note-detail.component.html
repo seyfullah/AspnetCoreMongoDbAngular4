@@ -1,0 +1,11 @@
+<div *ngIf="note">
+  <h2>{{note.Body}} detayları!</h2>
+  <div>
+    <label>No: </label>{{note.Id}}</div>
+  <div>
+    <label>İçerik: </label>
+    <input [(ngModel)]="note.Body" placeholder="name" />
+   </div>
+  <button (click)="goBack()">Geri</button>
+  <button (click)="save()">Kaydet</button>
+</div>

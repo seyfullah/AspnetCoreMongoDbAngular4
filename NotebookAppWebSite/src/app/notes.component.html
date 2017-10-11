@@ -1,0 +1,32 @@
+<h2>Notlarım</h2>
+<div>
+  <label>Notum:</label> <input #noteBody />
+  <button (click)="add(noteBody.value); noteBody.value=''">
+    Ekle
+  </button>
+</div>
+<div class="tableElementEmulation">
+  <ul class="notes">
+    <li *ngFor="let note of notes" (click)="onSelect(note)"
+        [class.selected]="note === selectedNote">
+      <span class="badge">{{note.Id}}</span>
+      <span>{{note.Body}}</span>
+      <span>&nbsp;&nbsp;&nbsp;</span>
+      <!--<span>{{note.CreatedOn}}</span>
+      <span>{{note.UpdatedOn}}</span>-->
+      <span>{{note.UserId}}</span>
+      <button class="delete"
+              (click)="delete(note); $event.stopPropagation()">
+        x
+      </button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="selectedNote">
+  <h2>
+    {{selectedNote.Body | uppercase}} benim notum
+  </h2>
+  <button (click)="gotoDetail()">Detayları göster</button>
+  <!--<note-detail [note]="selectedNote"></note-detail>-->
+</div>
+
